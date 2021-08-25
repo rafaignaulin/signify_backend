@@ -19,6 +19,9 @@ export class Music {
   
   @Column()
   description: string;
+
+  @Column()
+  avatar: string;
   
   @Column()
   lyrics: string;

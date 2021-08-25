@@ -6,11 +6,11 @@ import { ListArtistMusicsUseCase } from "./ListArtistMusicsUseCase";
 export default class ListArtistMusicsController {
 
   async handle(request: Request, response: Response): Promise<Response>{
-    const { artist_id } = request.params;
+    const { id } = request.params;
 
     const listArtistMusicsUseCase = container.resolve(ListArtistMusicsUseCase);
 
-    const musics = await listArtistMusicsUseCase.execute(artist_id);
+    const musics = await listArtistMusicsUseCase.execute(id);
     
     return response.json(musics);
   }

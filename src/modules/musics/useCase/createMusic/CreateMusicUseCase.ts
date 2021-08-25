@@ -7,6 +7,7 @@ interface IRequest {
   artist_id: string;
   name: string;
   description: string;
+  avatar_file?: string;
   lyrics: string;
 }
 

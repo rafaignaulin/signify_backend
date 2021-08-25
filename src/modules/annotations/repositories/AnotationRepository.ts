@@ -24,8 +24,9 @@ export class AnnotationRepository implements IAnnotationRepository{
     return await this.repository.save(annotation);
 
   }
-  listAllAnnotationsInMusic(music_id: string): Promise<Annotation[]> {
-    throw new Error("Method not implemented.");
+  async listAllAnnotationsInMusic(music_id: string): Promise<Annotation[]> {
+    const annotations = await this.repository.find({ music_id });
+    return annotations
   }
 
 }

@@ -17,10 +17,20 @@ export class CreateArtists1624327727883 implements MigrationInterface {
                         type: "varchar",
                     },
                     {
+                        name: "description",
+                        type: "varchar"
+                    },                    
+                    {
+                        name: "avatar",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
                     }
+
                 ],
             })
         )

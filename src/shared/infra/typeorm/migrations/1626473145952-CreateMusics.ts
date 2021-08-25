@@ -25,6 +25,11 @@ export class CreateMusics1626473145952 implements MigrationInterface {
                     type: "varchar",
                 },
                 {
+                    name: "avatar",
+                    type: "varchar",
+                    isNullable: true,
+                },
+                {
                     name: "lyrics",
                     type: "varchar",
                 },

@@ -11,6 +11,12 @@ export class Artist {
   @Column()
   name: string;
 
+  @Column()
+  description: string;
+
+  @Column()
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 

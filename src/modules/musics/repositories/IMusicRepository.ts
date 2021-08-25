@@ -9,7 +9,7 @@ export interface ICreateMusicDTO {
 }
 
 export interface IMusicRepository {
-  create({artist_id, name, description, lyrics}:ICreateMusicDTO): void;
+  create({artist_id, name, description,avatar,lyrics}:ICreateMusicDTO): void;
   findById(id: string): Promise<Music>;
   findByName(name: string): Promise<Music>;
   findArtist(artist_id : string): Promise<Music[]>;

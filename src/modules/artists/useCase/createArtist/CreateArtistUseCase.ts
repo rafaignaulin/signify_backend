@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe'
 import { IArtistRepository } from '../../repositories/IArtistRepository'
 
@@ -10,9 +11,14 @@ export class CreateArtistUseCase {
     ) {}
 
 
-  async execute(name:string): Promise<void> {
+  async execute(name:string, description:string): Promise<void> {
   
-    await this.artistRepository.create(name)
+    const verifyIfArtistExists = await this.artistRepository.findByName(name);
+    if(verifyIfArtistExists){
+      throw new AppError("Artist Already Exists")
+    }
+
+    await this.artistRepository.create({name, description})
   
   }
 }

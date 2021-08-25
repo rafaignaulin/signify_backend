@@ -18,3 +18,5 @@
 - Anotacoes
 >> - As anotacoes estao ligadas diretamente com as musicas (relacao varias anotacoes por musica)
 >> - Correspondem a uma parte do texto que possui um comentario, alguma descricao especifica naquela parte da musica.
+
+
