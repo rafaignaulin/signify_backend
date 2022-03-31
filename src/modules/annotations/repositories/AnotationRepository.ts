@@ -29,4 +29,7 @@ export class AnnotationRepository implements IAnnotationRepository{
     return annotations
   }
 
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id)
+  }
 }

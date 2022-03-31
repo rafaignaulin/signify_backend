@@ -12,12 +12,13 @@ export class MusicRepository implements IMusicRepository {
     this.repository = getRepository(Music);
   }
 
-  async create({artist_id ,name, description, lyrics}: ICreateMusicDTO): Promise<void> {
+  async create({artist_id ,name, description,avatar, lyrics}: ICreateMusicDTO): Promise<void> {
 
     const music = this.repository.create({
       artist_id,
       name,
       description,
+      avatar,
       lyrics
     })
   
@@ -31,7 +32,6 @@ export class MusicRepository implements IMusicRepository {
 
   async findArtist(artist_id: string): Promise<Music[]> {
     const artist_musics = await this.repository.find({artist_id})
-    console.log(artist_id)
     if(!artist_musics){
       throw new Error("Artist Doesnt Exists!");
     }

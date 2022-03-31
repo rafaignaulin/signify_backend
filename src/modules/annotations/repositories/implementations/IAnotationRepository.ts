@@ -20,5 +20,6 @@ export interface IAnnotationDTO{
 
 export interface IAnnotationRepository {
   create(data: IAnnotationDTO): Promise<Annotation>;
+  delete(id: string): Promise<void>;
   listAllAnnotationsInMusic(music_id:string): Promise<Annotation[]>;
 }

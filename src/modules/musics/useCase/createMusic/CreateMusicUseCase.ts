@@ -1,15 +1,9 @@
 import { inject, injectable } from 'tsyringe'
 import AppError from '../../../../shared/errors/AppError';
-import { IMusicRepository } from '../../repositories/IMusicRepository'
+import { ICreateMusicDTO, IMusicRepository } from '../../repositories/IMusicRepository'
 
 
-interface IRequest {
-  artist_id: string;
-  name: string;
-  description: string;
-  avatar_file?: string;
-  lyrics: string;
-}
+
 
 @injectable()
 export class CreateMusicUseCase {
@@ -19,7 +13,7 @@ export class CreateMusicUseCase {
     private musicRepository: IMusicRepository) {}
 
 
-  async execute({artist_id, name, description, lyrics} : IRequest): Promise<void> {
+  async execute({artist_id, name, description, avatar, lyrics} : ICreateMusicDTO): Promise<void> {
   
     const verifyIfArtistExists = await this.musicRepository.findArtist(artist_id)
     if(!verifyIfArtistExists){
@@ -35,6 +29,7 @@ export class CreateMusicUseCase {
       artist_id,
       name,
       description,
+      avatar,
       lyrics
     })
   

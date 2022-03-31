@@ -5,6 +5,7 @@ export interface ICreateMusicDTO {
   artist_id: string;
   name: string;
   description: string;
+  avatar: string;
   lyrics: string;
 }
 
