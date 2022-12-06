@@ -24,6 +24,9 @@ export class Music {
   avatar: string;
   
   @Column()
+  playback_url: string;
+
+  @Column("text")
   lyrics: string;
 
   @CreateDateColumn()

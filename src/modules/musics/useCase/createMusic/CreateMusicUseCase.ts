@@ -13,7 +13,7 @@ export class CreateMusicUseCase {
     private musicRepository: IMusicRepository) {}
 
 
-  async execute({artist_id, name, description, avatar, lyrics} : ICreateMusicDTO): Promise<void> {
+  async execute({artist_id, name, description, playback_url, avatar, lyrics} : ICreateMusicDTO): Promise<void> {
   
     const verifyIfArtistExists = await this.musicRepository.findArtist(artist_id)
     if(!verifyIfArtistExists){
@@ -29,6 +29,7 @@ export class CreateMusicUseCase {
       artist_id,
       name,
       description,
+      playback_url,
       avatar,
       lyrics
     })

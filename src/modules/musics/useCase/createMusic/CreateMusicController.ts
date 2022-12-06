@@ -7,11 +7,10 @@ export default class CreateMusicController {
 
   async handle(request: Request, response: Response): Promise<Response>{
     const { id } = request.params
-    const { name, description, lyrics } = request.body;
-    //const avatar = request.file.filename;
-
+    const { name, description, playback_url, lyrics } = request.body;
+    console.log(name, description, playback_url, lyrics)
     const createMusicUseCase = container.resolve(CreateMusicUseCase)
-    await createMusicUseCase.execute({artist_id: id, name, description, avatar:null,lyrics});
+    await createMusicUseCase.execute({artist_id: id, name, description, playback_url, avatar:undefined, lyrics});
   
     return response.status(201).send();
   }

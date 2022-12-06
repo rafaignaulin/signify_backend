@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  database: 
+    image: postgres
+    container_name: database_signify
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=signify
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/data/postgres
+  # backend:
+  #   build: ./
+  #   container_name: signify_backend 
+  #   ports:
+  #     - 3333:3333
+  #   links:
+  #     - database
+  # frontend:
+  #   build: ./dev_mobile
+  #   container_name: signify_frontend 
+  #   ports:
+  #     - 8080:80
+  #   links:
+  #     - database
+volumes:
+  pgdata:
+    driver: local
